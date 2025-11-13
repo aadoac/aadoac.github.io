@@ -1,0 +1,162 @@
+body {
+    background-color: black;
+}
+
+p {
+    color: white;
+}
+
+#mainDiv {
+}
+
+#headerContent{
+    text-align: center;
+    width: 100%;
+    font-size: xxx-large;
+    font-family: "Lucida Handwriting", cursive;
+}
+#bodyContent {
+    display: flex;
+}
+
+#headerContent h1 {
+    display: inline;
+}
+
+#myBiography {
+    width: 20%;
+    text-align: justify;
+    font-style: italic;
+    padding: 2%;
+}
+
+#myProjects {
+    width: 80%;
+}
+
+.a-color {
+    color: blue;
+}
+
+.maze-color {
+    color: red;
+}
+
+.d-color {
+    color: green;
+}
+
+.section-project {
+    width: 100%;
+}
+
+.project {
+    width: 33%;
+}
+
+.project a:link {
+    text-decoration: none;
+}
+
+.project a:visited {
+    text-decoration: none;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+.project a:active {
+    text-decoration: underline;
+}
+
+.section-project-title {
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    color: white;
+}
+
+.section-project-content {
+    width: 100%;
+    display: flex;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+#mainDiv {
+    width: 85%;
+    padding-left: 2%;
+    padding-right: 1%;
+}
+
+#mainDiv h1 {
+    text-align: center;
+} 
+
+#mainDiv p {
+    text-align: justify;
+}
+
+.github-code {
+    width: 80%;
+}
+
+#mainDiv li {
+    color: white;
+}
+
+#mainDiv figure figcaption {
+    color: white;
+    font-style: italic;
+    font-size: smaller;
+}
+
+.coding-font {
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+}
+
+footer {
+    border-top: 2px solid red;
+}
+
+#foot {
+    border-top: 2px solid red;
+    width: 100%;
+}
+
+#mainFoot {
+    border-top: 2px solid red;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+#footLeft {
+    width: 33%;
+    float: left;
+}
+
+#footCenter {
+    width: 33%;
+    float: left;
+}
+
+#footCenter p {
+    text-align: left;
+}
+
+#footRight {
+    width: 33%;
+    float: right;
+}
