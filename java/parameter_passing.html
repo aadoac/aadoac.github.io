@@ -10,7 +10,7 @@
       <h2>Introduction</h2>
       <p>Java uses a pass-by-value strategy for parameter passing. This means that when a method is called with parameters, a temporary copy of each argument's value is created.</p>
 
-      <h2>How does it work in Java</h2>
+      <h2>How It Works in Java</h2>
       <p>When a thread calls a method in Java, a new block is created in the stack memory with the local variables. Once the method ends, this block is removed from the stack.</p>
       <p>The following example will help us gain a better understanding. It is recommended to have some knowledge of how memory works in Java, and to understand the concepts of Stack memory and Heap memory.</p>
 
@@ -33,7 +33,7 @@
         <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FParameter-passing-java%2Fblob%2Fmain%2Fsrc%2Ftest%2Fjava%2Forg%2Famazed%2Fparameter%2Fpassing%2FPersonActionTest.java&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
       </div>
       
-      <h2>Why does it work this way?</h2>
+      <h2>Why It Works This Way</h2>
       <p>As we can see in <b>image_1</b>, the stack memory contains both the <span class="coding-font">test1</span> and <span class="coding-font">changeLastName</span> methods. Each of these methods has its own local variables. However, the <span class="coding-font">person</span> variable in both methods points to the same memory address, which refers to the same object in the heap. As a result, when either method modifies any property of the <span class="coding-font">person</span> object, the changes are immediately visible to the other method as well, because both variables reference the same instance.</p>
       <figure>
         <picture>
@@ -51,7 +51,7 @@
       </figure>
       
 
-      <h2>Reference</h2>
+      <h2>References</h2>
       <ul>
         <li><a href="https://en.wikipedia.org/wiki/Evaluation_strategy" target="_blank">Evaluation strategy</a></li>
         <li><a href="https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html" target="_blank">The Structure of the Java Virtual Machine</a></li>

@@ -52,6 +52,7 @@ p {
 
 .project {
     width: 33%;
+    padding: 1%;
 }
 
 .project a:link {
