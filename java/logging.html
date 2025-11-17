@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Logging in Java Using Logback</title>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <h1>Logging in Java Using Logback</h1>
+      <h2>Introduction</h2>
+      <p>When running Java applications, it is essential to have a properly configured logging system. Configuring logging in Java can sometimes be challenging due to the variety of available options and frameworks. In this article, we will explore Logback, one of the most widely used logging frameworks for Java.</p>
+
+      <h2>Logging Concepts</h2>
+      <p>
+        <ul>
+          <li>Level.- Every log message has an associated level that indicates its importance or severity. The most common logging levels are: TRACE, DEBUG, INFO, WARN, ERROR, and FATAL.</li>
+          <li>Appender.- It is responsible for sending log messages to their designated destinations, such as the console, files, or other outputs.</li>
+          <li>Layout.- Defines how the log messages are formatted. Common formats include JSON, plain text, XML, and HTML.</li>
+          <li>Pattern.- It's a string that defines the format of a log message.</li>
+        </ul>
+      </p>
+      <h2>What SLF4J API Is About</h2>
+      <p>Before delving into Logback, it is essential to first understand the SLF4J api. The Simple Logging Facade for Java (SLF4J) enables integration with various logging frameworks through the use of the facade pattern. <b>Image_1</b> offers a graphical representation of how Logback fits into this scenario.</p>
+      <figure>
+        <picture>
+          <img src="../images/slf4j.png" alt="SLF4J">
+        </picture>
+        <figcaption><b>Image_1.-</b> Illustration for SLF4J</figcaption>
+      </figure>
+
+      <h2>How Logback Works</h2>
+      <p>The Logback framework consists of three main components:</p> 
+      <p>
+        <ul>
+            <li>Logback-core.- This provides the fundamental parts of the logging system.</li>
+            <li>Logback-classic.- This replaces Log4j and implements the SLF4J api.</li>
+            <li>Logback-access.- This provides HTTP access log functionality.</li>
+        </ul>
+      </p>
+
+
+      <h2>Hands-on</h2>
+      <p>We're going to build a small application where we will set up logging in several different ways. The first appender will send messages to the console. The second appender will write messages to a file in a plain text format, and the third appender will write messages to a file in JSON format. This configuration is defined in the <span class="coding-font">logback.xml</span> file. For the file appenders, we're adding a rolling policy in which the rollover occurs once per day, with a maximum of 30 days of history files retained. The log leve is set to INFO.</p>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FLogback-java%2Fblob%2Fmain%2Fsrc%2Fmain%2Fresources%2Flogback.xml&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+        
+      <p>In the <span class="coding-font">Main</span> class, we can observe three log messages at different levels: ERROR, INFO and DEBUG. In our example, since the log level is set to INFO, only the ERROR and INFO messages will be written, while the DEBUG message will be skipped.</p>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FLogback-java%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Forg%2Famazed%2Flogback%2FMain.java&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+
+      <p>Another important aspect of this project is the libraries used. Since we're using Maven, all the dependencies are listed in the <span class="coding-font">pom.xml</span> file.</p>
+      <p>Here is a brief explanation of the libraries we're using:
+        <ul>
+          <li>slf4j-api.- This library allows us to integrate additional logging frameworks if necessary.</li>
+          <li>logback-core and logback-classic.- These libraries enable us to use the Logback framework.</li>
+          <li>logback-json-classic, logback-jackson and jackson-databind.- These libraries allow us to represent log messages in JSON format.</li>
+        </ul>
+      </p>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FLogback-java%2Fblob%2Fmain%2Fpom.xml&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+      <p>The log results are shown in the following images.</p>
+      <figure>
+        <picture>
+          <img src="../images/console.png" alt="Console" width="865" height="275">
+        </picture>
+        <figcaption><b>Image_2.-</b> Illustration for Console appender</figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <img src="../images/plainFile.png" alt="Plain Text" width="865" height="275">
+        </picture>
+        <figcaption><b>Image_3.-</b> Illustration for Plain Text format</figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <img src="../images/json.png" alt="SLF4J" width="865">
+        </picture>
+        <figcaption><b>Image_4.-</b> Illustration for JSON format</figcaption>
+      </figure>
+
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://www.slf4j.org/" target="_blank">SLF4J</a></li>
+        <li><a href="https://logback.qos.ch/index.html" target="_blank">Logback</a></li>
+      </ul>
+      <div id="foot">
+        <div id="footLeft">
+          <p>Author: Aarón Donoso Acedo<br>
+          <a href="mailto:aaron.donoso82@gmail.com">Contact me</a></p>
+        </div>
+        <div id="footCenter">
+          <p><a href="../index.html">Home</a></p>
+        </div>
+        <div id="footRight">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
