@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Multithreaded Java Application</title>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <h1>Multithreaded Java Application</h1>
+      <h2>Introduction</h2>
+      <p>Thread is an important concept in Java for developing high-performance applications. This topic is very extensive; however, this article provides a brief introduction to implementing multiple threads within a Java application.</p>
+
+      <h2>Thread Concepts</h2>
+      <p>
+        <ul>
+          <li>Thread.- A thread in programming is a unit of execution within a process or application. Threads allow us to run code in parallel.</li>
+          <li>Concurrency.- It's the ability of a system to execute multiple tasks simultaneously.</li>
+          <li>Lifecycle.- Threads can go through multiple states such as New, Runnable, Running, Blocked/Waiting, and Terminated.</li>
+          <li>Creation.- A thread in Java is started with the <span class="coding-font">start()</span> method, which in turn calls the thread's <span class="coding-font">run()</span> method.</li>
+          <li>Synchronization.- It's the ability to prevent inconsistent states and data corruption.</li>
+        </ul>
+      </p>
+      <h2>Threads in Java Memory</h2>
+      <p>The Java threads are represented by thread objects, and each thread has its own stack to store runtime data. It's illustrated in <b>Image_1</b></p>
+      <figure>
+        <picture>
+          <img src="../images/Threads.png" alt="SLF4J">
+        </picture>
+        <figcaption><b>Image_1.-</b> Illustration for threads in java memory</figcaption>
+      </figure>
+
+      <h2>Hands-on</h2>
+      <p>Now we're going to build a practice application that runs multiple threads simultaneously. There're two ways to create a thread in Java: one option is to implement the <span class="coding-font">Runnable</span> interface, and the other option is extending the <span class="coding-font">Thread</span> class. There's no significant difference in terms of performance. However, as a general guideline, implementing <span class="coding-font">Runnable</span> interface is preferred for better object-oriented design and flexibility, while extending the <span class="coding-font">Thread</span> class can be used for simplicity.</p>
+      <p>In our application, we have two classes: <span class="coding-font">RunnableExample</span> class, which implements <span class="coding-font">Runnable</span> interface, and <span class="coding-font">ThreadExample</span> class, which extends from <span class="coding-font">Thread</span> class. Both classes override the <span class="coding-font">run()</span> method with the same implementation: They put the thread to sleep for a random number of seconds and, finally, print a message indicating that the thread has been executed.</p>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FThread-java%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Forg%2Famazed%2Fthread%2FRunnableExample.java&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FThread-java%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Forg%2Famazed%2Fthread%2FThreadExample.java&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+        
+      <p>We also have a <span class="coding-font">Main</span> class that starts ten threads: five threads are from the <span class="coding-font">RunnableExample</span> class and another five threads from the <span class="coding-font">ThreadExample</span> class.</p>
+      <div class="github-code">
+        <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Faadoac%2FThread-java%2Fblob%2Fmain%2Fsrc%2Fmain%2Fjava%2Forg%2Famazed%2Fthread%2FMain.java&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+      </div>
+
+      <p>What this example demostrates is that all the threads are independent and can be executed in parallel, as shown in the log results. For example, we can see that <span class="coding-font">Thread-Thread-4</span> was the first to be initiated, but it was not the first to be executed, as illustrated in <b>Image_2</b>.</p>
+      
+      <figure>
+        <picture>
+          <img src="../images/thread_console.png" alt="Thread console" width="865">
+        </picture>
+        <figcaption><b>Image_2.-</b> Illustration for thread console</figcaption>
+      </figure>
+
+      <p><b>Image_3</b> is a screenshot from VisualVM, showing that all the threads are running simultaneously.</p>
+      <figure>
+        <picture>
+          <img src="../images/threads_running.png" alt="Threads running" width="865">
+        </picture>
+        <figcaption><b>Image_3.-</b> Illustration for threads running</figcaption>
+      </figure>
+
+      <h2>Common Problems in Multithreaded Applications</h2>
+      <p>Managing multiple threads in an application can be very complex, and we may encounter various issues. Some common problems are:</p>
+      <ul>
+        <li>Race Conditions.- Multiple threads attempt to modify shared data at the same time, which can result in inconsistent data.</li>
+        <li>Deadlock.- More than one thread are blocked indefinitely because each is waiting for the other one to release the lock.</li>
+        <li>Starvation.- Some threads constantly accesse certain resources, preventing others from being able to access them.</li>
+        <li>Livelock.- Threads are active but not progressing.</li>
+      </ul>
+      <p>And there are additional issues. We will try to explain some of these problems in other articles.</p>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html" target="_blank">Concurrency in Java</a></li>
+      </ul>
+      <div id="foot">
+        <div id="footLeft">
+          <p>Author: Aarón Donoso Acedo<br>
+          <a href="mailto:aaron.donoso82@gmail.com">Contact me</a></p>
+        </div>
+        <div id="footCenter">
+          <p><a href="../index.html">Home</a></p>
+        </div>
+        <div id="footRight">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
